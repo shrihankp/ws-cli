@@ -10,7 +10,6 @@
     "figlet": "^1.5.2",
     "log-symbols": "^5.1.0",
     "lolcatjs": "^2.4.1",
-    "pino": "^8.6.1",
     "secure-json-parse": "^2.5.0",
     "vorpal": "^1.12.0",
     "ws": "^8.9.0"
