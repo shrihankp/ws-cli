@@ -1,5 +1,5 @@
 import BaseLogger from './BaseLogger'
 
-export default class ServerLogger extends BaseLogger {
+export default class ClientLogger extends BaseLogger {
   readonly context: string = 'client';
 }
