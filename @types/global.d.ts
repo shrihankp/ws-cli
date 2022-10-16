@@ -1,8 +1,11 @@
+/* eslint-disable no-var */
 import { WebSocketServer } from 'ws';
-import { MiscLogger, ServerLogger, ClientLogger } from './logger';
+import ClientLogger from './logger/ClientLogger';
+import MiscLogger from './logger/MiscLogger';
+import ServerLogger from './logger/ServerLogger';
 
 declare global {
   var WSS: WebSocketServer | undefined;
   var prompt: string;
-  var loggers: { misc: MiscLogger, server: ServerLogger, client: ClientLogger };
+  var loggers: { misc: MiscLogger; server: ServerLogger; client: ClientLogger };
 }
