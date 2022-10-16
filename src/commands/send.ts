@@ -19,7 +19,7 @@ export default function (vorpal: Vorpal): void {
               this.log(global.loggers.client.error(`Error while sending messages to client ${idx + 1}.`));
               this.log(global.loggers.client.trace(err));
             } else {
-              this.log(global.loggers.client.info(`Sent message to client ${idx + 1}.`));
+              this.log(global.loggers.client.success(`Sent message to client ${idx + 1}.`));
             }
           });
         }
