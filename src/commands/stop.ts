@@ -11,7 +11,7 @@ export default function (vorpal: Vorpal): void {
       } else {
         global.WSS.close((err: Error) => {
           if (err) {
-            this.log(global.loggers.server.error(`Something wicked happened while stopping the server`));
+            this.log(global.loggers.server.error(`Something wicked happened while stopping the server.`));
             this.log(global.loggers.server.trace(err));
             return;
           }
