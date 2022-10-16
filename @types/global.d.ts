@@ -6,6 +6,5 @@ import ServerLogger from './logger/ServerLogger';
 
 declare global {
   var WSS: WebSocketServer | undefined;
-  var prompt: string;
   var loggers: { misc: MiscLogger; server: ServerLogger; client: ClientLogger };
 }
