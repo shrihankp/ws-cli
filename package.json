@@ -1,7 +1,7 @@
 {
   "name": "ws-cli",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "git+https://github.com/shrihanDev/ws-cli",
   "author": "shrihanDev <shrihankp198725@gmail.com>",
   "license": "MIT",
