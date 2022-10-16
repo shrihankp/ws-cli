@@ -18,6 +18,7 @@ export default function (vorpal: Vorpal): void {
           this.log(global.loggers.server.success('Successfully stopped the WebSocket server.'));
           this.delimiter('ws-cli $');
           global.WSS = undefined;
+          global.connectedClients = [];
         });
       }
     });

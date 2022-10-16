@@ -31,21 +31,27 @@ export default function (vorpal: Vorpal): void {
           this.log(global.loggers.server.trace(err));
           if (!global.WSS.address()) {
             global.WSS = undefined;
+            global.connectedClients = [];
           }
         });
         global.WSS.on('connection', (ws: WebSocket) => {
           this.log(global.loggers.client.info('A new connection was established.'));
+          global.connectedClients.push(ws);
+          const idx: number = global.connectedClients.indexOf(ws);
           ws.on('message', (data: RawData) => {
-            this.log(global.loggers.client.info(`Message from client: ${data}`));
+            this.log(global.loggers.client.info(`Message from client ${idx + 1}: ${data}`));
           });
           ws.on('error', (code: number, reason_: Buffer) => {
             const reason = reason_.toString() || '<no reason specified>';
-            this.log(global.loggers.client.error(`Code: ${code}; Reason: ${reason}`));
+            this.log(global.loggers.client.error(`Error in client ${idx + 1}: Code=${code}; Reason=${reason}`));
           });
           ws.on('close', (code: number, reason: Buffer) => {
             this.log(
-              global.loggers.client.info(`A connection was closed. Code: ${code}; Reason: ${reason.toString()}`)
+              global.loggers.client.info(
+                `A connection (client ${idx + 1}) was closed. Code: ${code}; Reason: ${reason.toString()}`
+              )
             );
+            global.connectedClients.splice(idx, 1);
           });
         });
       }

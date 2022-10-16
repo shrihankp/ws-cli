@@ -21,6 +21,7 @@ global.loggers = {
   client: new ClientLogger(),
   server: new ServerLogger()
 };
+global.connectedClients = [];
 
 const Main = new Vorpal();
 Main.use(start);
