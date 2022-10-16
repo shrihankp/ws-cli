@@ -6,27 +6,21 @@ export default class BaseLogger {
     1: 'trace',
     2: 'info',
     3: 'success',
-    4: 'warn',
-    5: 'error',
-    6: 'fatal'
+    5: 'error'
   };
 
   private readonly lvNames: { [k: string]: number } = {
     trace: 1,
     info: 2,
     success: 3,
-    warn: 4,
-    error: 5,
-    fatal: 6
+    error: 5
   };
 
   private readonly lvColorFuncs: { [k: number]: ChalkFunction } = {
     1: chalk.bgRedBright,
     2: chalk.blueBright,
     3: chalk.greenBright,
-    4: chalk.yellow,
-    5: chalk.redBright,
-    6: chalk.red
+    5: chalk.redBright
   };
 
   private log(levelNum: number, message: string): string {
@@ -69,15 +63,7 @@ export default class BaseLogger {
     return this.log(this.lvNames.success, message);
   }
 
-  public warn(message: string): string {
-    return this.log(this.lvNames.warn, message);
-  }
-
   public error(message: string): string {
     return this.log(this.lvNames.error, message);
-  }
-
-  public fatal(message: string): string {
-    return this.log(this.lvNames.fatal, message);
   }
 }
