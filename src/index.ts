@@ -1,6 +1,7 @@
 import { textSync } from 'figlet';
 import { fromString as lolcat, options } from 'lolcatjs';
 import Vorpal from 'vorpal';
+import clear from './commands/clear';
 import send from './commands/send';
 import start from './commands/start';
 import stop from './commands/stop';
@@ -24,5 +25,6 @@ const Main = new Vorpal();
 Main.use(start);
 Main.use(stop);
 Main.use(send);
+Main.use(clear);
 
 Main.delimiter('ws-cli $').show();
