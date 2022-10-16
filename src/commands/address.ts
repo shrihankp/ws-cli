@@ -10,7 +10,7 @@ export default function (vorpal: Vorpal) {
       if (global.WSS === undefined) {
         this.log(global.loggers.misc.error('The server is not running at the moment.'));
       } else {
-        this.log(global.loggers.misc.info(JSON.stringify(global.WSS.address() as AddressInfo, null, 2)));
+        this.log(global.loggers.server.info(JSON.stringify(global.WSS.address() as AddressInfo, null, 2)));
       }
     });
 }
