@@ -34,15 +34,13 @@ export default function (vorpal: Vorpal): void {
           }
         });
         global.WSS.on('connection', (ws: WebSocket) => {
+          this.log(global.loggers.client.info('A new connection was established.'));
           ws.on('message', (data: RawData) => {
             this.log(global.loggers.client.info(`Message from client: ${data}`));
           });
           ws.on('error', (code: number, reason_: Buffer) => {
             const reason = reason_.toString() || '<no reason specified>';
             this.log(global.loggers.client.error(`Code: ${code}; Reason: ${reason}`));
-          });
-          ws.on('open', () => {
-            this.log(global.loggers.client.success('A new connection was established.'));
           });
           ws.on('close', (code: number, reason: Buffer) => {
             this.log(
