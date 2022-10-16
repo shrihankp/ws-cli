@@ -1,4 +1,5 @@
 import chalk, { ChalkFunction } from 'chalk';
+import logSymbols from 'log-symbols';
 
 export default class BaseLogger {
   readonly context: string = '';
@@ -23,6 +24,13 @@ export default class BaseLogger {
     5: chalk.redBright
   };
 
+  private readonly lvSymbols: { [k: number]: string } = {
+    1: logSymbols.error,
+    2: logSymbols.info,
+    3: logSymbols.success,
+    5: logSymbols.error
+  };
+
   private log(levelNum: number, message: string): string {
     const now: Date = new Date(Date.now());
     const h: string = now.getHours().toString().padStart(2, '0');
@@ -32,11 +40,12 @@ export default class BaseLogger {
     const date = `${h}:${m}:${s}.${ms}`;
     const level: string = this.levels[levelNum];
     const lvColorFunc: ChalkFunction = this.lvColorFuncs[levelNum];
+    const lvSymbol: string = this.lvSymbols[levelNum];
     let logStr = '';
 
     chalk.reset();
     logStr += `[${chalk.cyan(date)}] `;
-    logStr += lvColorFunc(level.toLocaleUpperCase()) + ' ';
+    logStr += `${lvSymbol} ` + lvColorFunc(level.toLocaleUpperCase()) + ' ';
     chalk.reset();
     logStr += '-> ' + chalk.magenta(this.context.toLocaleUpperCase());
     chalk.reset();
