@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 # TypeScript transpile output
-lib/
+# lib/
