@@ -35,9 +35,9 @@ export default function (vorpal: Vorpal): void {
           }
         });
         global.WSS.on('connection', (ws: WebSocket) => {
-          this.log(global.loggers.client.info('A new connection was established.'));
           global.connectedClients.push(ws);
           const idx: number = global.connectedClients.indexOf(ws);
+          this.log(global.loggers.client.info(`A new connection was established. ID=${idx + 1}`));
           ws.on('message', (data: RawData) => {
             this.log(global.loggers.client.info(`Message from client ${idx + 1}: ${data}`));
           });
