@@ -14,7 +14,7 @@ export default function (vorpal: Vorpal): void {
       } else if (parseInt(port) !== port || port > 65535) {
         this.log(
           global.loggers.misc.error(
-            `${port} is not a valid port! Port should be a valid number between 1 and 65535, inclusive`
+            `${port.toString()} is not a valid port! Port should be a valid number between 1 and 65535, inclusive`
           )
         );
       } else {
