@@ -2,7 +2,7 @@ import Vorpal from 'vorpal';
 
 export default function (vorpal: Vorpal): void {
   vorpal
-    .command('send [message]', 'Sends a message to the connected clients')
+    .command('send <message...>', 'Sends a message to the connected clients')
     .alias('notify')
     .alias('broadcast')
     .action(async function (this: Vorpal.CommandInstance, args: Vorpal.Args): Promise<void> {
