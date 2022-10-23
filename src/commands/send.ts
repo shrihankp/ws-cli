@@ -6,7 +6,7 @@ export default function (vorpal: Vorpal): void {
     .alias('notify')
     .alias('broadcast')
     .action(async function (this: Vorpal.CommandInstance, args: Vorpal.Args): Promise<void> {
-      const message: string = args.message;
+      const message: string = args.message.join(' ');
       if (global.WSS === undefined) {
         this.log(global.loggers.misc.error('The server is not running at the moment.'));
       } else if (global.connectedClients.length === 0) {
