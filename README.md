@@ -8,7 +8,7 @@ For testing [reisxd/termux-app](https://github.com/reisxd/termux-app).
 
 ## How to get it?
 
-- Clone the repository (or alternatively, use):
+- Clone the repository (or alternatively, use the Code button at the top to download the repo):
 
 ```bash
 git clone https://github.com/shrihanDev/ws-cli
