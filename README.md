@@ -2,10 +2,6 @@
 
 A tool that allows you to instantly create a WebSocket server that clients can connect to and send and receive messages to and from those clients. This can be useful for testing applications that consume such servers by starting a mock server and sending required messages.
 
-## Why did I create this?
-
-For testing [reisxd/termux-app](https://github.com/reisxd/termux-app).
-
 ## How to get it?
 
 - Clone the repository (or alternatively, use the Code button at the top to download the repo):
